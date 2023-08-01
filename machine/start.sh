@@ -1,1 +1,0 @@
-docker run -v "$(pwd)"/../kernel:/kernel -it myos 
