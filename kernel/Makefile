@@ -31,7 +31,9 @@ iso = out/output.iso
 
 linker_s = build/linker.ld
 
-
+all:
+	@echo "if you want to build iso file call 'make iso'"
+	@exit
 # boot build
 $(boot_ASM_objects): build/boot/%.o : src/boot/%.asm
 	mkdir -p $(dir $@) && \
@@ -56,6 +58,10 @@ $(kernel_C_objects): build/kernel/%.o : src/kernel/%.c
 	mkdir -p $(dir $@) && \
 	gcc -c -I src/include -ffreestanding $(patsubst build/kernel/%.o, src/kernel/%.c, $@) -o $@
 
+
+clean:
+	rm -Rf ./out/*
+	rm -Rf ./build/boot/*  ./build/core/*  ./build/kernel/*
 .PHONY: iso
 iso: $(iso)
 $(iso): $(objects) boot/grub/grub.cfg $(linker_s)
