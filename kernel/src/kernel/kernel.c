@@ -2,7 +2,7 @@
 
 
 void prnt_check(){
-    char* mytest = "XYN";
+    char* mytest = "ShitOS loaded!";
     print_clear();
     print_set_color(PRINT_COLOR_RED, PRINT_COLOR_BLACK);
     print_str(mytest);
